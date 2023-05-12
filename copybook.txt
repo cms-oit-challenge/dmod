@@ -1,0 +1,71 @@
+      ******************************************************************
+      *                                                                *
+      * COPYBOOK: C19CDL82                                             *
+      *                                                                *
+      * DESCRIPTION: COVID-19 SURVEY DATA.                             *
+      *                                                                *
+      ******************************************************************
+
+       01  C19-RECORD.
+
+           05  C19-GROUP                               PIC X(3).
+               88  C19-GROUP-AGE                        VALUE 'AGE'.
+               88  C19-GROUP-EDUCATION                  VALUE 'EDU'.
+               88  C19-GROUP-NTNL-EST                   VALUE 'EST'.
+               88  C19-GROUP-STATE                      VALUE 'STA'.
+               88  C19-GROUP-SEX                        VALUE 'SEX'.
+
+           05  C19-SEVERITY                            PIC 9(1).
+               88  C19-SEV-5-SIGNIFICANT-L              VALUE 5.
+               88  C19-SEV-4-ANY-L                      VALUE 5.
+               88  C19-SEV-3-CURRENT-L                  VALUE 5.
+               88  C19-SEV-2-EVER-L                     VALUE 5.
+               88  C19-SEV-1-EVER                       VALUE 5.
+               88  C19-SEV-VALID                        VALUES 1 THRU 5.
+               88  C19-SEV-VALID-LONG-COVID             VALUES 2 THRU 5.
+
+           05  C19-STATE                               PIC X(2).
+
+           05  C19-SUBGRP                              PIC X(2).
+      * LESS THAN HIGH SCHOOL
+               88  C19-SUBGRP-E1-LT-HS                  VALUE 'E1'.
+               88  C19-SUBGRP-E2-HS                     VALUE 'E2'.
+               88  C19-SUBGRP-E3-SOME-CLG               VALUE 'E3'.
+               88  C19-SUBGRP-E4-BACH                   VALUE 'E4'.
+               88  C19-SUBGRP-EDU-VALID          VALUES 'E1' THRU 'E4'.
+               88  C19-SUBGRP-A1-18-29                  VALUE 'A1'.
+               88  C19-SUBGRP-A2-30-39                  VALUE 'A2'.
+               88  C19-SUBGRP-A3-40-49                  VALUE 'A3'.
+               88  C19-SUBGRP-A4-50-59                  VALUE 'A4'.
+               88  C19-SUBGRP-A5-60-69                  VALUE 'A5'.
+               88  C19-SUBGRP-A6-70-79                  VALUE 'A6'.
+               88  C19-SUBGRP-A7-80-UP                  VALUE 'A7'.
+               88  C19-SUBGRP-AGE-VALID          VALUES 'A1' THRU 'A7'.
+               88  C19-SUBGRP-S1-MALE                   VALUE 'S1'.
+               88  C19-SUBGRP-S2-FEMALE                 VALUE 'S2'.
+               88  C19-SUBGRP-SEX-VALID          VALUES 'S1' 'S2'.
+
+           05  C19-DT-START.
+               10  C19-DT-START-YEAR                   PIC 9(4).
+               10  C19-DT-START-DAY                    PIC 9(3).
+           05  C19-DT-END.
+               10  C19-DT-END-YEAR                     PIC 9(4).
+               10  C19-DT-END-DAY                      PIC 9(3).
+
+           05  C19-VALUE                               PIC 99V9.
+
+      * CONFIDENCE INTERVAL FOR VALUE
+           05  C19-CI-LOW                              PIC 9(2)V9(1).
+           05  C19-CI-HIGH                             PIC 9(2)V9(1).
+
+      * QUARTILE RANGE
+           05  C19-4ILE.
+               10  C19-4ILE-LOW                        PIC 9(2)V9(1).
+               10  C19-4ILE-HIGH                       PIC 9(2)V9(1).
+CR193 * ADD SUPPORT FOR RANGES LIKE '>=67.8'
+CR193      05  C19-4ILE-INEQ REDEFINES C19-4ILE.
+CR193          10  C19-4ILE-GTE-LTE                    PIC X(3).
+CR193          10  C19-4ILE-VALUE                      PIC 9(2)V9(1).
+
+           05  C19-4ILE-NUM                            PIC 9.
+

@@ -17,10 +17,10 @@
 
            05  C19-SEVERITY                            PIC 9(1).
                88  C19-SEV-5-SIGNIFICANT-L              VALUE 5.
-               88  C19-SEV-4-ANY-L                      VALUE 5.
-               88  C19-SEV-3-CURRENT-L                  VALUE 5.
-               88  C19-SEV-2-EVER-L                     VALUE 5.
-               88  C19-SEV-1-EVER                       VALUE 5.
+               88  C19-SEV-4-ANY-L                      VALUE 4.
+               88  C19-SEV-3-CURRENT-L                  VALUE 3.
+               88  C19-SEV-2-EVER-L                     VALUE 2.
+               88  C19-SEV-1-EVER                       VALUE 1.
                88  C19-SEV-VALID                        VALUES 1 THRU 5.
                88  C19-SEV-VALID-LONG-COVID             VALUES 2 THRU 5.
 
